@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @eye_glass.name %>
+</p>
+
+<p>
+  <b>Material:</b>
+  <%= @eye_glass.material %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @eye_glass.color %>
+</p>
+
+<p>
+  <b>Shape:</b>
+  <%= @eye_glass.shape %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @eye_glass.price %>
+</p>
+
+<p>
+  <b>Who can wear:</b>
+  <%= @eye_glass.who_can_wear %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @eye_glass.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_eye_glass_path(@eye_glass) %> |
+<%= link_to 'Back', eye_glasses_path %>

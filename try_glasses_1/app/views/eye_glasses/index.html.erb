@@ -1,0 +1,35 @@
+<h1>Listing eye_glasses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Material</th>
+    <th>Color</th>
+    <th>Shape</th>
+    <th>Price</th>
+    <th>Who can wear</th>
+    <th>Image url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @eye_glasses.each do |eye_glass| %>
+  <tr>
+    <td><%= eye_glass.name %></td>
+    <td><%= eye_glass.material %></td>
+    <td><%= eye_glass.color %></td>
+    <td><%= eye_glass.shape %></td>
+    <td><%= eye_glass.price %></td>
+    <td><%= eye_glass.who_can_wear %></td>
+    <td><%= eye_glass.image_url %></td>
+    <td><%= link_to 'Show', eye_glass %></td>
+    <td><%= link_to 'Edit', edit_eye_glass_path(eye_glass) %></td>
+    <td><%= link_to 'Destroy', eye_glass, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Eye glass', new_eye_glass_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  material: MyString
+  color: MyString
+  shape: MyString
+  price: 9.99
+  who_can_wear: MyString
+  image_url: MyString
+
+two:
+  name: MyString
+  material: MyString
+  color: MyString
+  shape: MyString
+  price: 9.99
+  who_can_wear: MyString
+  image_url: MyString

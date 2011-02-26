@@ -1,0 +1,25 @@
+<h1>Listing model_images</h1>
+
+<table>
+  <tr>
+    <th>Image url</th>
+    <th>Gender</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @model_images.each do |model_image| %>
+  <tr>
+    <td><%= model_image.image_url %></td>
+    <td><%= model_image.gender %></td>
+    <td><%= link_to 'Show', model_image %></td>
+    <td><%= link_to 'Edit', edit_model_image_path(model_image) %></td>
+    <td><%= link_to 'Destroy', model_image, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Model image', new_model_image_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User name:</b>
+  <%= @client.user_name %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @client.gender %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @client.image_url %>
+</p>
+
+<p>
+  <b>Frame url:</b>
+  <%= @client.frame_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

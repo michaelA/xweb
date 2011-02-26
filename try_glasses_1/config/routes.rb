@@ -1,4 +1,10 @@
 TryGlasses1::Application.routes.draw do
+  resources :clients
+
+  resources :model_images
+
+  resources :eye_glasses
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
