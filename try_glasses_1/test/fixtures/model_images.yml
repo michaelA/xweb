@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  image_url: MyString
-  gender: MyString
+  image_url: http://myglassses
+  gender: female
 
 two:
-  image_url: MyString
-  gender: MyString
+  image_url: http://myglasses
+  gender: male

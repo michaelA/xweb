@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  user_name: MyString
-  gender: MyString
-  image_url: MyString
-  frame_url: MyString
+  user_name: ABC
+  gender: male
+  image_url: http://dump
+  frame_url: http://frameurl
 
 two:
-  user_name: MyString
-  gender: MyString
-  image_url: MyString
-  frame_url: MyString
+  user_name: XYZ
+  gender: female
+  image_url: http://dump
+  frame_url: http://frameURL
