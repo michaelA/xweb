@@ -8,6 +8,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
       t.decimal :price,   :null => false, precision => 6, :scale => 2
       t.string :who_can_wear
       t.string :image_url
+	  t.string : brand
 
       t.timestamps
     end
