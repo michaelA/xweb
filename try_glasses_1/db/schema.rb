@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20110226193439) do
 
   create_table "clients", :force => true do |t|
-    t.string   "user_name"
-    t.string   "gender"
+    t.string   "user_name",  :null => false
+    t.string   "gender",     :null => false
     t.string   "image_url"
     t.string   "frame_url"
     t.datetime "created_at"
@@ -22,22 +22,32 @@ ActiveRecord::Schema.define(:version => 20110226193439) do
   end
 
   create_table "eye_glasses", :force => true do |t|
-    t.string   "name"
-    t.string   "material"
-    t.string   "color"
-    t.string   "shape"
-    t.decimal  "price"
-    t.string   "who_can_wear"
-    t.string   "image_url"
+    t.string   "name",         :null => false
+    t.string   "material",     :null => false
+    t.string   "color",        :null => false
+    t.string   "shape",        :null => false
+    t.decimal  "price",        :null => false
+    t.string   "who_can_wear", :null => false
+    t.string   "image_url",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "eye_glasses", ["color"], :name => "index_eye_glasses_on_color"
+  add_index "eye_glasses", ["image_url"], :name => "index_eye_glasses_on_image_url"
+  add_index "eye_glasses", ["material"], :name => "index_eye_glasses_on_material"
+  add_index "eye_glasses", ["name"], :name => "index_eye_glasses_on_name"
+  add_index "eye_glasses", ["shape"], :name => "index_eye_glasses_on_shape"
+  add_index "eye_glasses", ["who_can_wear"], :name => "index_eye_glasses_on_who_can_wear"
+
   create_table "model_images", :force => true do |t|
-    t.string   "image_url"
-    t.string   "gender"
+    t.string   "image_url",  :null => false
+    t.string   "gender",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "model_images", ["gender"], :name => "index_model_images_on_gender"
+  add_index "model_images", ["image_url"], :name => "index_model_images_on_image_url"
 
 end
