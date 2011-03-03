@@ -9,11 +9,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
       t.string :color,    :null => false 
       t.string :shape,    :null => false
       # price is a number value that has two decimal places and can be range from 9999 - 0
-<<<<<<< HEAD
-      t.decimal :price,   :null => false #, precision => 6, :scale => 2
-=======
       t.decimal :price,   :null => false, :precision => 6, :scale => 2
->>>>>>> 1dc7abdb8ae1661aa6e181e4504810931c46de5f
       #default to both genders can wear
       t.string :who_can_wear, :null => false #!!!!add a default tag if one exists!!
       #references the address location of the image for the eyeglass frames

@@ -2,8 +2,8 @@ class CreateClients < ActiveRecord::Migration
   def self.up
     create_table :clients do |t|
       
-      # a client will have a name
-      # a gender, and a image_url that is synonymous with model
+      # a client will have a name and a gender
+      # a image_url that is synonymous with model
       t.string :user_name, :null => false
       t.string :gender, :null => false
       t.string :image_url
