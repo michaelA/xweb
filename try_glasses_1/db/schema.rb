@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(:version => 20110226193439) do
   end
 
   create_table "eye_glasses", :force => true do |t|
-    t.string   "name",         :null => false
-    t.string   "material",     :null => false
-    t.string   "color",        :null => false
-    t.string   "shape",        :null => false
-    t.decimal  "price",        :null => false
-    t.string   "who_can_wear", :null => false
-    t.string   "image_url",    :null => false
+    t.string   "name",                                       :null => false
+    t.string   "material",                                   :null => false
+    t.string   "color",                                      :null => false
+    t.string   "shape",                                      :null => false
+    t.decimal  "price",        :precision => 6, :scale => 2, :null => false
+    t.string   "who_can_wear",                               :null => false
+    t.string   "image_url",                                  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

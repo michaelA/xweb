@@ -7,7 +7,7 @@ one:
   shape: oval
   price: 19.99
   who_can_wear: female
-  image_url: http://myglasses
+  image_url: /images/frame_1.png
 
 two:
   name: Calvin Klein
@@ -16,7 +16,7 @@ two:
   shape: square
   price: 39.99
   who_can_wear: female
-  image_url: http://myglasses
+  image_url: /images/frame_2.png
 
 three:
   name: Calvin Klein
@@ -25,4 +25,4 @@ three:
   shape: square
   price: 29.99
   who_can_wear: female
-  image_url: http://myglasses
+  image_url: /images/frame_3.png
