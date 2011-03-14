@@ -1,29 +1,58 @@
 <h1>Listing clients</h1>
 
-<table>
-  <tr>
-    <th>User name</th>
-    <th>Gender</th>
-    <th>Image url</th>
-    <th>Frame url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= stylesheet_link_tag "styles" %>
+<div id = "model" class = "leftbody" >
+<img  border="0" src="" alt="" width="400" height="400" />
+</div>
+<div class = "rightbody">
+<table border = "1" >
+	<tr>
+		<th>Materials</th>
+		<th>shape</th>
+		<th>price</th>
+	</tr>
+  
+	<tr>
+	<td><select name="material" aligh = "center">
+	<option value="All">All</option>
+	<option value="plastic">Plastic</option>
+	<option value="metal">Metal</option>
+	</select>
+	</td>
+	<td><select name="shape">
+	<option value="All">All</option>
+	<option value="round">round</option>
+	<option value="square">square</option>
+	</select>
+
+<td><select name="price">
+	<option value="All">All</option>
+	<option value="below $20">below $20</option>
+	<option value="below $10">"below $10</option>
+	</select>
+
+</tr>
 
 <% @clients.each do |client| %>
-  <tr>
-    <td><%= client.user_name %></td>
-    <td><%= client.gender %></td>
-    <td><%= client.image_url %></td>
-    <td><%= client.frame_url %></td>
-    <td><%= link_to 'Show', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+   <tr>
+    <td><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url %></td>
+	  
   </tr>
 <% end %>
 </table>
+</div> 
+<script>
+$("a").click(function(event){
+   event.preventDefault();
+   var mainImage = $(this).attr("href");
+   $("#model img").attr("src", mainImage);
+  
+ });
+</script>
+
+
+<br /> 
 
 <br />
 
-<%= link_to 'New Client', new_client_path %>
+

@@ -3,11 +3,17 @@
 one:
   user_name: ABC
   gender: male
-  image_url: http://dump
-  frame_url: http://frameurl
+  image_url: /images/frame_1_model.png
+  frame_url:  /images/frame_1.png 
 
 two:
   user_name: XYZ
   gender: female
-  image_url: http://dump
-  frame_url: http://frameURL
+  image_url: /images/frame_2_model.png
+  frame_url: /images/frame_2.png
+
+three:
+  user_name: CDF
+  gender: female
+  image_url: /images/frame_3_model.png
+  frame_url: /images/frame_3.png
