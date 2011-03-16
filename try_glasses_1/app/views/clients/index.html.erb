@@ -32,12 +32,12 @@
 	</select>
 
 </tr>
-
+   <% count = 0 %>
 <% @clients.each do |client| %>
-   <tr>
+   <%if count == 0%><tr><%end%>
     <td><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url %></td>
-	  
-  </tr>
+	  <% count += 1 %>
+  <% if count == 3%></tr><% count = 1 end%>
 <% end %>
 </table>
 </div> 
