@@ -4,6 +4,7 @@ class CreateClients < ActiveRecord::Migration
       
       # a client will have a name and a gender
       # a image_url that is synonymous with model
+       t.integer :id, :null => false
       t.string :user_name, :null => false
       t.string :gender, :null => false
       t.string :image_url

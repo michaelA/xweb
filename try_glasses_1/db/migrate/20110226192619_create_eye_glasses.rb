@@ -4,6 +4,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
       # Name is the Brand and all the other attributes 
       # material through shape describe the particular pair of frames,
       # thus none of these attributes can be null or empty
+      t.integer :id, :null => false
       t.string :name,     :null => false
       t.string :material, :null => false
       t.string :color,    :null => false 
@@ -17,7 +18,8 @@ class CreateEyeGlasses < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
+     add_index :eye_glasses, :id
     add_index :eye_glasses, :name
     add_index :eye_glasses, :material
     add_index :eye_glasses, :color 
@@ -28,6 +30,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
   end
 
   def self.down
+
     remove_index :eye_glasses, :name
     remove_index :eye_glasses, :material
     remove_index :eye_glasses, :color 

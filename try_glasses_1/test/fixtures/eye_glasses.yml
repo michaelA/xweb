@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   name: Lenscrafters
   material: plastic
   color: black
@@ -10,6 +11,7 @@ one:
   image_url: /images/frame_1.png
 
 two:
+  id: 2
   name: Calvin Klein
   material: metal
   color: silver
@@ -19,6 +21,7 @@ two:
   image_url: /images/frame_2.png
 
 three:
+  id: 3
   name: Calvin Klein
   material: metal
   color: black

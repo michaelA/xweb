@@ -1,18 +1,21 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   user_name: ABC
   gender: male
   image_url: /images/frame_1_model.png
   frame_url:  /images/frame_1.png 
 
 two:
+  id: 2
   user_name: XYZ
   gender: female
   image_url: /images/frame_2_model.png
   frame_url: /images/frame_2.png
 
 three:
+  id: 3
   user_name: CDF
   gender: female
   image_url: /images/frame_3_model.png
