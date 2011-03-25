@@ -1,9 +1,12 @@
-<h1>Listing clients</h1>
+<div  class = "imgcentered" >
+<img  border="1" src=" /images/framedirect.png" alt="" width="1100" height="100" />
+</div>
 
-<%= stylesheet_link_tag "styles" %>
 <div id = "model" class = "leftbody" >
 <img  border="0" src="" alt="" width="400" height="400" />
 </div>
+
+
 <div class = "rightbody">
 <table border = "1" >
 	<tr>
@@ -32,22 +35,43 @@
 	</select>
 
 </tr>
+
+
+
    <% count = 0 %>
 <% @clients.each do |client| %>
    <%if count == 0%><tr><%end%>
-    <td><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url %></td>
+    <td><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url ,{:id => client.id}%></td>
 	  <% count += 1 %>
   <% if count == 3%></tr><% count = 1 end%>
 <% end %>
+
+
 </table>
-</div> 
+</div>
+     <div  id = "eyeglassstable" class="rightbodybottom" >
+    </div>
+</div>
+
+
 <script>
 $("a").click(function(event){
    event.preventDefault();
    var mainImage = $(this).attr("href");
+   var id = this.id;
+
    $("#model img").attr("src", mainImage);
-  
- });
+   $.getJSON("clients.json",function(result,suc){
+
+            var content = "<div id = 'eyeglassstable' class='rightbodybottom'><font color ='#FFFFFF' >" +  "  &nbsp; &nbsp;&nbsp;Price:"+ "   " +result[id-1].eye_glass.price   ;
+           content +=  "  &nbsp; &nbsp;&nbsp;Brand:" + result[id-1].eye_glass.name + "   <br> &nbsp;&nbsp; color: " + result[id-1].eye_glass.color + "</div>"
+
+             $('#eyeglassstable'). replaceWith( content );
+       });
+
+
+
+});
 </script>
 
 
