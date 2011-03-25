@@ -3,10 +3,13 @@ class ClientsController < ApplicationController
   # GET /clients.xml
   def index
     @clients = Client.all
+    @eyeGlass = EyeGlass.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @clients }
+      format.json  { render :json => @eyeGlass.to_json }
+
     end
   end
 
