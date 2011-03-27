@@ -1,5 +1,5 @@
 class EyeGlass < ActiveRecord::Base
-  
+  ActiveRecord::Base.include_root_in_json = false
 	 validates_presence_of :name
     validates_presence_of :material
     validates_presence_of :color 
