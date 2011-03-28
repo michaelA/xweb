@@ -8,7 +8,8 @@ one:
   shape: oval
   price: 19.99
   who_can_wear: female
-  image_url: /images/frame_1.png
+  image_url: /images/frame_1_model.png
+  frame_url: /images/frame_1.png
 
 two:
   id: 2
@@ -18,7 +19,8 @@ two:
   shape: square
   price: 39.99
   who_can_wear: female
-  image_url: /images/frame_2.png
+  image_url: /images/frame_2_model.png
+  frame_url: /images/frame_2.png
 
 three:
   id: 3
@@ -28,4 +30,5 @@ three:
   shape: square
   price: 29.99
   who_can_wear: female
-  image_url: /images/frame_3.png
+  image_url: /images/frame_3_model.png
+  frame_url: /images/frame_3.png
