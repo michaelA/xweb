@@ -15,6 +15,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
       t.string :who_can_wear, :null => false #!!!!add a default tag if one exists!!
       #references the address location of the image for the eyeglass frames
       t.string :image_url, :null => false
+      t.string :frame_url, :null => false
 
       t.timestamps
     end
@@ -26,6 +27,7 @@ class CreateEyeGlasses < ActiveRecord::Migration
     add_index :eye_glasses, :shape
     add_index :eye_glasses, :who_can_wear
     add_index :eye_glasses, :image_url
+    add_index :eye_glasses, :frame_url
     
   end
 
