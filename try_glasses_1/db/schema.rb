@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110226193439) do
+ActiveRecord::Schema.define(:version => 20110330170036) do
 
   create_table "clients", :force => true do |t|
     t.string   "user_name",  :null => false
@@ -52,5 +52,13 @@ ActiveRecord::Schema.define(:version => 20110226193439) do
 
   add_index "model_images", ["gender"], :name => "index_model_images_on_gender"
   add_index "model_images", ["image_url"], :name => "index_model_images_on_image_url"
+
+  create_table "registers", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

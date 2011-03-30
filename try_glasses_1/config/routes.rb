@@ -1,4 +1,6 @@
 TryGlasses1::Application.routes.draw do
+  resources :registers
+
   get "welcome/index"
 
   resources :clients

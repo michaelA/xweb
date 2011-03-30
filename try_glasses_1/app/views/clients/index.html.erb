@@ -3,7 +3,14 @@
 </div>
 
 <div id = "model" class = "leftbody" >
-<a href="www.google.com"><img  border="0" src="" alt="" width="400" height="400" /></a>
+<table border = "1">
+	<th><%=button_to "Register", new_register_url, :method => :get%></th>
+	<tr>
+		<td>
+		<a href="www.google.com"><img  border="0" src="" alt="" width="400" height="400" /></a>
+		</td>
+	</tr>
+</table>
 </div>
 
 
@@ -16,25 +23,27 @@
 	</tr>
   
 	<tr>
-	<td><select name="material" id = "material" align = "center">
-	<option selected="true"  value="All">All</option>
-	<option value="plastic">plastic</option>
-	<option value="metal">metal</option>
-	</select>
-	</td>
-	<td><select name="shape" id = "shape">
-	<option selected="true" value="All">All</option>
-	<option value="oval">oval</option>
-	<option value="square">square</option>
-	</select>
-
-<td><select name="price" id ="price">
-	<option  selected="true" value="All">All</option>
-	<option value="low to high">low to high</option>
-	<option value="high to low">high to low</option>
-	</select>
-
-</tr>
+		<td>
+			<select name="material" id = "material" align = "center">
+				<option selected="true"  value="All">All</option>
+				<option value="plastic">plastic</option>
+				<option value="metal">metal</option>
+			</select>
+		</td>
+		<td>
+			<select name="shape" id = "shape">
+			<option selected="true" value="All">All</option>
+			<option value="oval">oval</option>
+			<option value="square">square</option>
+		</select>
+		<td>
+			<select name="price" id ="price">
+				<option  selected="true" value="All">All</option>
+				<option value="low to high">low to high</option>
+				<option value="high to low">high to low</option>
+			</select>
+		</td>
+	</tr>
 
 
 
