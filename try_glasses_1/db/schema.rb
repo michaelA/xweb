@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(:version => 20110226193439) do
     t.decimal  "price",        :precision => 6, :scale => 2, :null => false
     t.string   "who_can_wear",                               :null => false
     t.string   "image_url",                                  :null => false
+    t.string   "frame_url",                                  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "eye_glasses", ["color"], :name => "index_eye_glasses_on_color"
+  add_index "eye_glasses", ["frame_url"], :name => "index_eye_glasses_on_frame_url"
+  add_index "eye_glasses", ["id"], :name => "index_eye_glasses_on_id"
   add_index "eye_glasses", ["image_url"], :name => "index_eye_glasses_on_image_url"
   add_index "eye_glasses", ["material"], :name => "index_eye_glasses_on_material"
   add_index "eye_glasses", ["name"], :name => "index_eye_glasses_on_name"
