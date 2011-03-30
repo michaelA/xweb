@@ -1,158 +1,169 @@
+
+<!-- Banner Image -->
 <div  class = "imgcentered" >
-<a href="www.google.com"><img  border="1" src=" /images/framedirect.png" alt="" width="1100" height="100" /></a>
+	<a href="www.google.com"><img  border="1" src=" /images/framedirect.png" alt="" width="1100" height="100" /></a>
 </div>
 
+<!-- Model Image --->
 <div id = "model" class = "leftbody" >
 <table border = "1">
 	<th><%=button_to "Register", new_register_url, :method => :get%></th>
 	<tr>
 		<td>
-		<a href="www.google.com"><img  border="0" src="" alt="" width="400" height="400" /></a>
+			<img  border="0" src="" alt="" width="400" height="400" />
 		</td>
 	</tr>
 </table>
 </div>
 
-
+<!-- Glasses Table -->
 <div class = "rightbody">
-<table border = "1" >
-	<tr>
-		<th>Materials</th>
-		<th>shape</th>
-		<th>price</th>
-	</tr>
-  
-	<tr>
-		<td>
-			<select name="material" id = "material" align = "center">
-				<option selected="true"  value="All">All</option>
-				<option value="plastic">plastic</option>
-				<option value="metal">metal</option>
-			</select>
-		</td>
-		<td>
-			<select name="shape" id = "shape">
-			<option selected="true" value="All">All</option>
-			<option value="oval">oval</option>
-			<option value="square">square</option>
-		</select>
-		<td>
-			<select name="price" id ="price">
-				<option  selected="true" value="All">All</option>
-				<option value="low to high">low to high</option>
-				<option value="high to low">high to low</option>
-			</select>
-		</td>
-	</tr>
-
-
-
-   <% count = 0 %>
-<% @clients.each do |client| %>
-   <%if count == 0%><tr id = "image"><%end%>
-    <td id = "frame"><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url ,{:id => client.id}%></td>
-	  <% count += 1 %>
-
-<% end %>
-
-
-</table>
+	<table border = "1" >
+		<tr>
+			<th>Materials</th>
+			<th>shape</th>
+			<th>price</th>
+		</tr>
+		<tr>
+			<td>
+				<select name="material" id = "material" align = "center">
+					<option selected="true"  value="All">All</option>
+					<option value="plastic">plastic</option>
+					<option value="metal">metal</option>
+				</select>
+			</td>
+			<td>
+				<select name="shape" id = "shape">
+					<option selected="true" value="All">All</option>
+					<option value="oval">oval</option>
+					<option value="square">square</option>
+				</select>
+			<td>
+				<select name="price" id ="price">
+					<option  selected="true" value="All">All</option>
+					<option value="low to high">low to high</option>
+					<option value="high to low">high to low</option>
+				</select>
+			</td>
+		</tr>
+		<!--Ruby code of getting glasses images from database -->
+		<% count = 0 %>
+		<% @clients.each do |client| %>
+			<%if count == 0%><tr id = "image"><%end%>
+			<td id = "frame"><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url ,{:id => client.id}%></td>
+		<% count += 1 %>
+		<% end %>
+	</table>
 </div>
 
-    </div>
-     <div  id = "eyeglassstable">
-    </div>
-</div>
+<!--selected eye glasses information received by Jqeury function -->
+<div id = 'eyeglassstable'/>
 
-
+<!--Jquery code -->
 <script >
 
-
-
-
-$("a").live('click', function(e) {
-       e.preventDefault();
-
-
-     var mainImage = $(this).attr("href");
-
-   var id = this.id;
-
-   $("#model img").attr("src", mainImage);
-   $.getJSON("clients.json",function(result,suc){
-          for (i=0;i<=result.length;i++)
+/**
+*Returns the selected eye glasses informtion
+*
+*@ return var
+*/
+$("a").live('click', function(e) 
+{
+	e.preventDefault();
+    var mainImage = $(this).attr("href");
+	var id = this.id;
+	$("#model img").attr("src", mainImage);
+	$.getJSON("clients.json",function(result,suc)
+	{
+		for (i=0;i<=result.length;i++)
+		{
+			if(result[i].id == id)
             {
-                if(result[i].id == id)
-                {
-                    var content = "<div id = 'eyeglassstable' class='rightbodybottom'><font color ='#FFFFFF' >" +  "  &nbsp;Name:"+ "   " +result[i].name   ;
-                   content +=  "  &nbsp; &nbsp;Material:" + result[i].material + "  &nbsp; color: " + result[i].color ;
-                   content +=  "  &nbsp; &nbsp;&nbsp;Shape:" + result[i].shape + "&nbsp; &nbsp;&nbsp;Price:" + result[i].price +"</div>";
-
-                     $('#eyeglassstable'). replaceWith( content );
-                  }
+                var content = "<div id = 'eyeglassstable' class='rightbodybottom'><font color ='#FFFFFF' >" + "  &nbsp;Name:"  + result[i].name;
+				content +=  "  &nbsp; &nbsp;Material:" + result[i].material + "  &nbsp; color: " + result[i].color;
+				content +=  "  &nbsp; &nbsp;&nbsp;Shape:" + result[i].shape + "&nbsp; &nbsp;&nbsp;Price:" + result[i].price + "</div>";
+                $('#eyeglassstable'). replaceWith( content );
             }
-       });
-
-
+        }
+    });
 });
- var sort_by = function(field, reverse, primer){
 
-               reverse = (reverse) ? -1 : 1;
+/**
+*Return the eye glasses price.
+*if reverse is true, return price from high to low
+*if reverse is false, return price from low to high
+*
+*@field name tag of sorting objects
+*@reverse sorting paramter, true from high to low, flase from low to high
+*@primer number parsing parameter.
+*
+*@return var
+*/
+var sort_by = function(field, reverse, primer)
+{
+	reverse = (reverse) ? -1 : 1;
+	return function(a,b)
+	{
+		a = a[field];
+		b = b[field];
+				   
+		if (typeof(primer) != 'undefined')
+		{
+			a = primer(a);
+			b = primer(b);
+		}
+		if (a<b) return reverse * -1;
+		if (a>b) return reverse * 1;
+		return 0;
+	}
+}
 
-               return function(a,b){
+/**
+*Return the table row of eye glasses sorted by price.
+*
+*@ return var
+*/
+$("#price").change(function()
+{
+	var sel = $('#price option:selected').text();
+	$.getJSON("clients.json",function(result,suc)
+	{
+		if(sel == "low to high")
+		{
+			result.sort(sort_by('price', false, parseFloat));
+		}
+		else if (sel == "high to low")
+			result.sort(sort_by('price', true, parseFloat));
+			
+        $("table").find("#image").remove();
+        var msg = "<tr id = 'image'>";
+		for (i=0;i<=result.length - 1;i++)
+        {
+			msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
+		}
+		msg +=  "</tr>";
+        
+		$("table tr:last").after(msg);
+		$("#model img").attr("src", "");
+		var content = "<div id = 'eyeglassstable'></div>";
+        $('#eyeglassstable'). replaceWith(content);
+    });
+});
 
-                   a = a[field];
-                   b = b[field];
-
-                   if (typeof(primer) != 'undefined'){
-                       a = primer(a);
-                       b = primer(b);
-                   }
-
-                   if (a<b) return reverse * -1;
-                   if (a>b) return reverse * 1;
-                   return 0;
-
-               }
-            }
-         $("#price").change(function()
-         {
-           var sel = $('#price option:selected').text();
-
-
-             $.getJSON("clients.json",function(result,suc){
-               if(sel == "low to high")
-               {
-                 result.sort(sort_by('price', false, parseFloat));
-               }
-                 else if (sel == "high to low")
-                    result.sort(sort_by('price', true, parseFloat));
-                 $("table").find("#image").remove();
-                 var msg = "<tr id = 'image'>";
-                for (i=0;i<=result.length - 1;i++)
-                {
-                   msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-                }
-                msg +=  "</tr>";
-
-
-                $("table tr:last").after(msg);
-                   $("#model img").attr("src", "");
-                     var content = "<div id = 'eyeglassstable'></div>"
-                $('#eyeglassstable'). replaceWith(content);
-             });
-
-
-         });
-         $("#shape").change(function()
-         {
-             var sel = $('#shape option:selected').text();
-
-             $.getJSON("clients.json",function(result,suc){
-               $("table").find("#image").remove();
-                 var msg = "<tr id = 'image'>";
-                for (i=0;i<=result.length - 1;i++)
-                {
+/**
+*table row of eye glasses sorted by shape. 
+*
+*@ return var
+*/		 
+$("#shape").change(function()
+{
+	var sel = $('#shape option:selected').text();
+	$.getJSON("clients.json",function(result,suc)
+	{
+        $("table").find("#image").remove();
+        var msg = "<tr id = 'image'>";
+        for (i=0;i<=result.length - 1;i++)
+        {
                     if(result[i].shape == sel)
                     {
                         msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
@@ -161,45 +172,45 @@ $("a").live('click', function(e) {
                     {
                           msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
                     }
-                }
-                msg +=  "</tr>";
+		}
+		msg +=  "</tr>";
+		$("#model img").attr("src", "");
+		$("table tr:last").after(msg);
+		var content = "<div id = 'eyeglassstable'></div>";
+        $('#eyeglassstable'). replaceWith(content);
+	});
+});
 
-                $("#model img").attr("src", "");
-                $("table tr:last").after(msg);
-                   var content = "<div id = 'eyeglassstable'></div>"
-                $('#eyeglassstable'). replaceWith(content);
+/**
+*Return the table row of eye glasses sorted by materials. 
+*
+*@ return var
+*/
+$("#material").change(function()
+{
+	var sel = $('#material option:selected').text();
+	$.getJSON("clients.json",function(result,suc)
+	{
+		$("table").find("#image").remove();
+		var msg = "<tr id = 'image'>";
+		for (i=0;i<=result.length - 1;i++)
+		{
+			if(result[i].material == sel)
+			{
+				msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
+			}
+			else if (sel == "All")
+			{
+				msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
+			}
+		}
+		
+		msg +=  "</tr>";
+		$("#model img").attr("src", "");
+		$("table tr:last").after(msg);
+		var content = "<div id = 'eyeglassstable'></div>";
+		$('#eyeglassstable'). replaceWith(content);
 
-             });
-         });
-      $("#material").change(function()
-        {
-            var sel = $('#material option:selected').text();
-
-            $.getJSON("clients.json",function(result,suc){
-              $("table").find("#image").remove();
-                var msg = "<tr id = 'image'>";
-
-               for (i=0;i<=result.length - 1;i++)
-               {
-
-                   if(result[i].material == sel)
-                   {
-                       msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-                   }
-                   else if (sel == "All")
-                   {
-                         msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-                   }
-               }
-               msg +=  "</tr>";
-
-               $("#model img").attr("src", "");
-               $("table tr:last").after(msg);
-                 var content = "<div id = 'eyeglassstable'></div>"
-                $('#eyeglassstable'). replaceWith(content);
-
-            });
-        });
-
-
+	});
+});
 </script>
