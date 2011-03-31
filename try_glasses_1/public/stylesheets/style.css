@@ -38,11 +38,11 @@ color: #990000}
 
 body 
 {
-/*background-image:url('/images/bg.jpg');*/
-	position: center;
-	margin : 4px;
-	color : black;
-	background: #F5F5DC;
+background-image:url('/images/bg.jpg');
+    background-size: auto;
+    height: 100%;
+      margin: 0;
+      padding: 0;
     font-family: verdana;
 }
 .imgcentered{
@@ -80,23 +80,23 @@ padding: 4px 16px;
 
 .rightbody
 {
+ position: absolute;
+ z-index: 15;
+ margin-left: 700px;
+ margin-top: 40px;
+ padding: 0 0 20px 5px; /*top right bottom left*/
 
- position: absolute; 
- z-index: 15; 
- margin-left: 800px;
- margin-top: 0px;
- padding: 0 0 20px 5px; /*top right bottom left*/ 
- 
 }
 .rightbodybottom
 {
-
- position: absolute; 
+border-style:solid;
+ position: absolute;
  background-color:#003366;
- z-index: 15; 
- margin-left: 800px;
- margin-top: 400px;
- padding: 0 200px 20px 5px; /*top right bottom left*/ 
+ z-index: 15;
+    width: 500px;
+ margin-left: 700px;
+ margin-top:300px;
+ padding: 0px 0px 20px 5px; /*top right bottom left*/
  
 }
 
