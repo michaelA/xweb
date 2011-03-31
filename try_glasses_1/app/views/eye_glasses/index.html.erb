@@ -22,7 +22,8 @@
     <td><%= eye_glass.shape %></td>
     <td><%= eye_glass.price %></td>
     <td><%= eye_glass.who_can_wear %></td>
-    <td><%= image_tag(eye_glass.image_url, :alt => "welcome to my own blog image.gif") %></td>
+    <td><%= image_tag(eye_glass.image_url, :alt => "model wearing frame") %></td>
+	<td><%= image_tag(eye_glass.frame_url, :alt => "frame image") %></td>
     <td><%= link_to 'Show', eye_glass %></td>
     <td><%= link_to 'Edit', edit_eye_glass_path(eye_glass) %></td>
     <td><%= link_to 'Destroy', eye_glass, :confirm => 'Are you sure?', :method => :delete %></td>

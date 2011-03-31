@@ -4,7 +4,11 @@
 <tr>
 <th>Choose  your selection</th>
 </tr><tr>
-<td><%= link_to 'Demo Application', clients_path %></td>
+<td><!--<%= link_to 'Demo Application', clients_path %>-->
+<%=button_to "Demo Application", clients_path, :method => :get%>
+</td>
 </tr>
-<tr><td> <%= link_to 'Register', new_register_url, :method => :get %></td></tr>
+<tr><td><!-- <%= link_to 'Register', new_register_url, :method => :get %>   -->
+<%=button_to "Register", new_register_url, :method => :get%>
+</td></tr>
 </table></div>
