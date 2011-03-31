@@ -3,6 +3,16 @@ require 'test_helper'
 class EyeGlassesControllerTest < ActionController::TestCase
   setup do
     @eye_glass = eye_glasses(:one)
+    @update = {
+        :name => 'terry Co',
+        :material    => 'plastic',
+        :color      => 'white',
+        :shape      => 'square',
+        :price      => 29.12,
+        :who_can_wear => 'female',
+        :image_url => 'images/frame_1_model.png',
+        :frame_url => 'images/frame_1.pgn'
+    }
   end
 
   test "should get index" do
@@ -18,7 +28,7 @@ class EyeGlassesControllerTest < ActionController::TestCase
 
   test "should create eye_glass" do
     assert_difference('EyeGlass.count') do
-      post :create, :eye_glass => @eye_glass.attributes
+      post :create, :eye_glass => @update # @eye_glass.attributes
     end
 
     assert_redirected_to eye_glass_path(assigns(:eye_glass))
@@ -35,7 +45,7 @@ class EyeGlassesControllerTest < ActionController::TestCase
   end
 
   test "should update eye_glass" do
-    put :update, :id => @eye_glass.to_param, :eye_glass => @eye_glass.attributes
+    put :update, :id => @eye_glass.to_param, :eye_glass => @update#@eye_glass.attributes
     assert_redirected_to eye_glass_path(assigns(:eye_glass))
   end
 

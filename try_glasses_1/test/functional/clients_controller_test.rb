@@ -3,6 +3,12 @@ require 'test_helper'
 class ClientsControllerTest < ActionController::TestCase
   setup do
     @client = clients(:one)
+    @update = {
+        :user_name => 'terry23',
+        :gender => 'Male',
+        :image_url =>  'images/frame_6_model.png',
+        :frame_url => "images/frame_6.png"
+    }
   end
 
   test "should get index" do
@@ -18,7 +24,8 @@ class ClientsControllerTest < ActionController::TestCase
 
   test "should create client" do
     assert_difference('Client.count') do
-      post :create, :client => @client.attributes
+      post :create, :client => @update# instead use our update version
+                              #  @client.attributes
     end
 
     assert_redirected_to client_path(assigns(:client))
@@ -35,7 +42,8 @@ class ClientsControllerTest < ActionController::TestCase
   end
 
   test "should update client" do
-    put :update, :id => @client.to_param, :client => @client.attributes
+    put :update, :id => @client.to_param, :client =>  @update
+       # want to use update @client.attributes
     assert_redirected_to client_path(assigns(:client))
   end
 

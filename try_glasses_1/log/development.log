@@ -1613,3 +1613,1747 @@ Started GET "/welcome/index" for 127.0.0.1 at Thu Mar 31 07:10:28 -0700 2011
   Processing by WelcomeController#index as HTML
 Rendered welcome/index.html.erb within layouts/application (2.5ms)
 Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Mar 31 07:21:02 -0700 2011
+  Processing by WelcomeController#index as HTML
+Rendered welcome/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registers/new" for 127.0.0.1 at Thu Mar 31 07:21:07 -0700 2011
+  Processing by RegistersController#new as HTML
+  Parameters: {"authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA="}
+Rendered registers/_form.html.erb (31.9ms)
+Rendered registers/new.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 133ms (Views: 51.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registers" for 127.0.0.1 at Thu Mar 31 07:21:19 -0700 2011
+  Processing by RegistersController#create as HTML
+  Parameters: {"commit"=>"Register Info.", "register"=>{"name"=>"andrew", "address"=>"silview2", "email"=>"23"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (1.5ms)[0m  INSERT INTO "registers" ("created_at", "name", "address", "updated_at", "email") VALUES ('2011-03-31 14:21:19.352707', 'andrew', 'silview2', '2011-03-31 14:21:19.352707', '23')
+Redirected to http://localhost:3000/registers/980190971
+Completed 302 Found in 74ms
+
+
+Started GET "/registers/980190971" for 127.0.0.1 at Thu Mar 31 07:21:19 -0700 2011
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190971"}
+  [1m[36mRegister Load (0.3ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190971 LIMIT 1[0m
+Rendered registers/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 35ms (Views: 20.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registers/980190971/edit" for 127.0.0.1 at Thu Mar 31 07:21:21 -0700 2011
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190971"}
+  [1m[35mRegister Load (0.4ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190971 LIMIT 1
+Rendered registers/_form.html.erb (9.9ms)
+Rendered registers/edit.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 137ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registers/980190971" for 127.0.0.1 at Thu Mar 31 07:21:25 -0700 2011
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190971"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190971 LIMIT 1[0m
+Rendered registers/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 26ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/clients" for 127.0.0.1 at Thu Mar 31 07:21:32 -0700 2011
+  Processing by ClientsController#index as HTML
+  [1m[35mClient Load (2.8ms)[0m  SELECT "clients".* FROM "clients"
+  [1m[36mEyeGlass Load (0.6ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered clients/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 148ms (Views: 20.5ms | ActiveRecord: 3.5ms)
+  [1m[36mSQL (7.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (52.3ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.7ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.9ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+
+
+Started GET "/" for 127.0.0.1 at Thu Mar 31 08:34:44 -0700 2011
+  Processing by WelcomeController#index as HTML
+Rendered welcome/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:34:52 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (3.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered eye_glasses/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 128ms (Views: 28.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Thu Mar 31 08:35:10 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (20.0ms)
+Rendered eye_glasses/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 45ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:35:35 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"mery", "price"=>"4", "image_url"=>"ints/ds", "shape"=>"red", "color"=>"blue", "who_can_wear"=>"gust", "material"=>"clay"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mEyeGlass Load (0.5ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'ints/ds') LIMIT 1[0m
+  [1m[35mAREL (1.1ms)[0m  INSERT INTO "eye_glasses" ("created_at", "color", "updated_at", "who_can_wear", "price", "image_url", "material", "frame_url", "shape", "name") VALUES ('2011-03-31 15:35:35.268059', 'blue', '2011-03-31 15:35:35.268059', 'gust', 4.0, 'ints/ds', 'clay', NULL, 'red', 'mery')
+SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("created_at", "color", "updated_at", "who_can_wear", "price", "image_url", "material", "frame_url", "shape", "name") VALUES ('2011-03-31 15:35:35.268059', 'blue', '2011-03-31 15:35:35.268059', 'gust', 4.0, 'ints/ds', 'clay', NULL, 'red', 'mery')
+Completed   in 32ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("created_at", "color", "updated_at", "who_can_wear", "price", "image_url", "material", "frame_url", "shape", "name") VALUES ('2011-03-31 15:35:35.268059', 'blue', '2011-03-31 15:35:35.268059', 'gust', 4.0, 'ints/ds', 'clay', NULL, 'red', 'mery')):
+  app/controllers/eye_glasses_controller.rb:46:in `create'
+  app/controllers/eye_glasses_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/eye_glasses/" for 127.0.0.1 at Thu Mar 31 08:37:21 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (1.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered eye_glasses/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 67ms (Views: 31.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Thu Mar 31 08:37:25 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (20.5ms)
+Rendered eye_glasses/new.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 45ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:37:27 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"", "price"=>"", "image_url"=>"", "shape"=>"", "color"=>"", "who_can_wear"=>"", "material"=>""}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mEyeGlass Load (0.6ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = '') LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (15.3ms)
+Rendered eye_glasses/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 72ms (Views: 27.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:37:40 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"32", "price"=>"sd", "image_url"=>"s", "shape"=>"fd", "color"=>"2", "who_can_wear"=>"d", "material"=>"23"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[35mEyeGlass Load (39.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 's') LIMIT 1
+  [1m[36mAREL (42.6ms)[0m  [1mINSERT INTO "eye_glasses" ("updated_at", "who_can_wear", "material", "color", "name", "frame_url", "shape", "created_at", "image_url", "price") VALUES ('2011-03-31 15:37:41.063521', 'd', '23', '2', '32', NULL, 'fd', '2011-03-31 15:37:41.063521', 's', 0.0)[0m
+SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("updated_at", "who_can_wear", "material", "color", "name", "frame_url", "shape", "created_at", "image_url", "price") VALUES ('2011-03-31 15:37:41.063521', 'd', '23', '2', '32', NULL, 'fd', '2011-03-31 15:37:41.063521', 's', 0.0)
+Completed   in 228ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("updated_at", "who_can_wear", "material", "color", "name", "frame_url", "shape", "created_at", "image_url", "price") VALUES ('2011-03-31 15:37:41.063521', 'd', '23', '2', '32', NULL, 'fd', '2011-03-31 15:37:41.063521', 's', 0.0)):
+  app/controllers/eye_glasses_controller.rb:46:in `create'
+  app/controllers/eye_glasses_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:38:34 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"", "price"=>"", "image_url"=>"", "shape"=>"", "color"=>"", "who_can_wear"=>"", "material"=>""}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[35mEyeGlass Load (0.6ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = '') LIMIT 1
+Rendered eye_glasses/_form.html.erb (14.1ms)
+Rendered eye_glasses/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 103ms (Views: 26.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:39:10 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (3.6ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered eye_glasses/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 38ms (Views: 25.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Thu Mar 31 08:39:16 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (14.4ms)
+Rendered eye_glasses/new.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 39ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:39:24 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"", "price"=>"0.23", "image_url"=>"", "shape"=>"", "color"=>"", "who_can_wear"=>"", "material"=>""}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[35mEyeGlass Load (0.7ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = '') LIMIT 1
+Rendered eye_glasses/_form.html.erb (13.2ms)
+Rendered eye_glasses/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 53ms (Views: 24.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:39:37 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"ters", "price"=>"0.23", "image_url"=>"fdfe", "shape"=>"d", "color"=>"df", "who_can_wear"=>"fd", "material"=>"dsadf"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'fdfe') LIMIT 1[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "eye_glasses" ("image_url", "created_at", "who_can_wear", "updated_at", "price", "shape", "material", "name", "frame_url", "color") VALUES ('fdfe', '2011-03-31 15:39:38.104139', 'fd', '2011-03-31 15:39:38.104139', 0.23, 'd', 'dsadf', 'ters', NULL, 'df')
+SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("image_url", "created_at", "who_can_wear", "updated_at", "price", "shape", "material", "name", "frame_url", "color") VALUES ('fdfe', '2011-03-31 15:39:38.104139', 'fd', '2011-03-31 15:39:38.104139', 0.23, 'd', 'dsadf', 'ters', NULL, 'df')
+Completed   in 22ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("image_url", "created_at", "who_can_wear", "updated_at", "price", "shape", "material", "name", "frame_url", "color") VALUES ('fdfe', '2011-03-31 15:39:38.104139', 'fd', '2011-03-31 15:39:38.104139', 0.23, 'd', 'dsadf', 'ters', NULL, 'df')):
+  app/controllers/eye_glasses_controller.rb:46:in `create'
+  app/controllers/eye_glasses_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.1ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:40:02 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"ters", "price"=>"0.23", "image_url"=>"fdfe", "shape"=>"d", "color"=>"df", "who_can_wear"=>"fd", "material"=>"dsadf"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'fdfe') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "eye_glasses" ("material", "updated_at", "image_url", "shape", "created_at", "price", "frame_url", "who_can_wear", "color", "name") VALUES ('dsadf', '2011-03-31 15:40:02.900483', 'fdfe', 'd', '2011-03-31 15:40:02.900483', 0.23, NULL, 'fd', 'df', 'ters')
+SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("material", "updated_at", "image_url", "shape", "created_at", "price", "frame_url", "who_can_wear", "color", "name") VALUES ('dsadf', '2011-03-31 15:40:02.900483', 'fdfe', 'd', '2011-03-31 15:40:02.900483', 0.23, NULL, 'fd', 'df', 'ters')
+Completed   in 20ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("material", "updated_at", "image_url", "shape", "created_at", "price", "frame_url", "who_can_wear", "color", "name") VALUES ('dsadf', '2011-03-31 15:40:02.900483', 'fdfe', 'd', '2011-03-31 15:40:02.900483', 0.23, NULL, 'fd', 'df', 'ters')):
+  app/controllers/eye_glasses_controller.rb:46:in `create'
+  app/controllers/eye_glasses_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.2ms)
+
+
+Started POST "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:40:32 -0700 2011
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"commit"=>"Create Eye glass", "eye_glass"=>{"name"=>"name", "price"=>"Price", "image_url"=>"image do", "shape"=>"shape", "color"=>"color", "who_can_wear"=>"who ear", "material"=>"material"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'image do') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "eye_glasses" ("material", "created_at", "name", "image_url", "who_can_wear", "updated_at", "price", "frame_url", "shape", "color") VALUES ('material', '2011-03-31 15:40:33.088887', 'name', 'image do', 'who ear', '2011-03-31 15:40:33.088887', 0.0, NULL, 'shape', 'color')
+SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("material", "created_at", "name", "image_url", "who_can_wear", "updated_at", "price", "frame_url", "shape", "color") VALUES ('material', '2011-03-31 15:40:33.088887', 'name', 'image do', 'who ear', '2011-03-31 15:40:33.088887', 0.0, NULL, 'shape', 'color')
+Completed   in 20ms
+
+ActiveRecord::StatementInvalid (SQLite3::ConstraintException: eye_glasses.frame_url may not be NULL: INSERT INTO "eye_glasses" ("material", "created_at", "name", "image_url", "who_can_wear", "updated_at", "price", "frame_url", "shape", "color") VALUES ('material', '2011-03-31 15:40:33.088887', 'name', 'image do', 'who ear', '2011-03-31 15:40:33.088887', 0.0, NULL, 'shape', 'color')):
+  app/controllers/eye_glasses_controller.rb:46:in `create'
+  app/controllers/eye_glasses_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started GET "/eye_glasses" for 127.0.0.1 at Thu Mar 31 08:41:00 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (1.0ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered eye_glasses/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 38ms (Views: 28.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Thu Mar 31 08:41:03 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (14.4ms)
+Rendered eye_glasses/new.html.erb within layouts/application (100.6ms)
+Completed 200 OK in 120ms (Views: 108.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Mar 31 10:15:53 -0700 2011
+  Processing by WelcomeController#index as HTML
+Rendered welcome/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients" for 127.0.0.1 at Thu Mar 31 10:16:00 -0700 2011
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (3.4ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.5ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Rendered clients/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 263ms (Views: 23.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/eye_glasses" for 127.0.0.1 at Thu Mar 31 10:16:14 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (1.0ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered eye_glasses/index.html.erb within layouts/application (89.9ms)
+Completed 200 OK in 111ms (Views: 100.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Thu Mar 31 10:16:28 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (31.2ms)
+Rendered eye_glasses/new.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 115ms (Views: 104.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at Thu Mar 31 10:16:35 -0700 2011
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (12.4ms)
+Rendered clients/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 40ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/clients" for 127.0.0.1 at Thu Mar 31 10:16:46 -0700 2011
+  Processing by ClientsController#create as HTML
+  Parameters: {"commit"=>"Create Client", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "client"=>{"image_url"=>"hello", "gender"=>"male", "user_name"=>"lexington", "frame_url"=>"no"}}
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mClient Load (0.5ms)[0m  [1mSELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'lexington') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "clients" ("updated_at", "gender", "frame_url", "created_at", "user_name", "image_url") VALUES ('2011-03-31 17:16:46.649149', 'male', 'no', '2011-03-31 17:16:46.649149', 'lexington', 'hello')
+Redirected to http://localhost:3000/clients/4
+Completed 302 Found in 90ms
+
+
+Started GET "/clients/4" for 127.0.0.1 at Thu Mar 31 10:16:46 -0700 2011
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 4 LIMIT 1[0m
+Rendered clients/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 100ms (Views: 17.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/clients" for 127.0.0.1 at Thu Mar 31 10:16:49 -0700 2011
+  Processing by ClientsController#index as HTML
+  [1m[35mClient Load (3.0ms)[0m  SELECT "clients".* FROM "clients"
+  [1m[36mEyeGlass Load (0.5ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Rendered clients/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 43ms (Views: 20.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/model_images" for 127.0.0.1 at Thu Mar 31 10:23:13 -0700 2011
+  Processing by ModelImagesController#index as HTML
+  [1m[36mModelImage Load (2.2ms)[0m  [1mSELECT "model_images".* FROM "model_images"[0m
+Rendered model_images/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 76ms (Views: 22.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/model_images/new" for 127.0.0.1 at Thu Mar 31 10:23:17 -0700 2011
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (13.4ms)
+Rendered model_images/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 37ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:23:22 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"tesr"}}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mModelImage Load (0.1ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1[0m
+Rendered model_images/_form.html.erb (5.2ms)
+Rendered model_images/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 44ms (Views: 17.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:23:55 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"tesr"}}
+Completed   in 4ms
+
+SyntaxError (/Users/MikeyMucaQuoo/Desktop/cst533demoVersion/try_glasses_1/app/models/model_image.rb:5: unmatched ): /\(Male|Female)$/):
+  app/controllers/model_images_controller.rb:43:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (79.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (88.5ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:11 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"tesr"}}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1
+Rendered model_images/_form.html.erb (5.0ms)
+Rendered model_images/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 38ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:18 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"5"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1[0m
+Rendered model_images/_form.html.erb (4.8ms)
+Rendered model_images/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 33ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:19 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"5"}}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1
+Rendered model_images/_form.html.erb (5.0ms)
+Rendered model_images/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 33ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:20 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"5"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1[0m
+Rendered model_images/_form.html.erb (5.4ms)
+Rendered model_images/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 45ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:20 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"5"}}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1
+Rendered model_images/_form.html.erb (6.3ms)
+Rendered model_images/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 37ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:24:20 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"", "gender"=>"5"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = '') LIMIT 1[0m
+Rendered model_images/_form.html.erb (8.9ms)
+Rendered model_images/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 51ms (Views: 23.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/registers" for 127.0.0.1 at Thu Mar 31 10:25:08 -0700 2011
+  Processing by RegistersController#index as HTML
+  [1m[35mRegister Load (2.1ms)[0m  SELECT "registers".* FROM "registers"
+Rendered registers/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 43ms (Views: 33.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registers/new" for 127.0.0.1 at Thu Mar 31 10:25:15 -0700 2011
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (8.1ms)
+Rendered registers/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 28ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registers" for 127.0.0.1 at Thu Mar 31 10:25:28 -0700 2011
+  Processing by RegistersController#create as HTML
+  Parameters: {"commit"=>"Register Info.", "register"=>{"name"=>"MyString", "address"=>"MyText", "email"=>"MyString"}, "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'MyString') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = 'MyText') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'MyString') LIMIT 1[0m
+Rendered registers/_form.html.erb (8.2ms)
+Rendered registers/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 38ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.1ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.7ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.7ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+
+
+Started GET "/model_images" for 127.0.0.1 at Thu Mar 31 10:32:57 -0700 2011
+  Processing by ModelImagesController#index as HTML
+  [1m[36mModelImage Load (1.7ms)[0m  [1mSELECT "model_images".* FROM "model_images"[0m
+Rendered model_images/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 73ms (Views: 23.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/model_images/new" for 127.0.0.1 at Thu Mar 31 10:32:59 -0700 2011
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (10.8ms)
+Rendered model_images/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 33ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.3ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.8ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (6.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (2.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.7ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.9ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.6ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.9ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (6.1ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.0ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (7.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.6ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (8.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.5ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.0ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.0ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.4ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.7ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.1ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (7.8ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (6.4ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.6ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (7.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (8.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.5ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.3ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.7ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.6ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.1ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.3ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (7.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (7.4ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (7.5ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (7.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (7.4ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.3ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (6.4ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (7.5ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (7.4ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (7.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.7ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+
+
+Started GET "/" for 127.0.0.1 at Thu Mar 31 10:46:56 -0700 2011
+  Processing by WelcomeController#index as HTML
+Rendered welcome/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/model_images" for 127.0.0.1 at Thu Mar 31 10:47:04 -0700 2011
+  Processing by ModelImagesController#index as HTML
+  [1m[36mModelImage Load (2.9ms)[0m  [1mSELECT "model_images".* FROM "model_images"[0m
+Rendered model_images/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 126ms (Views: 19.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/model_images/new" for 127.0.0.1 at Thu Mar 31 10:47:06 -0700 2011
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (10.4ms)
+Rendered model_images/new.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 34ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/model_images" for 127.0.0.1 at Thu Mar 31 10:47:25 -0700 2011
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"commit"=>"Create Model image", "authenticity_token"=>"PkxWaO03mNzEQdzf9lu/R5F184abq3Kl6FwmDDM1DXA=", "utf8"=>"✓", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+Completed   in 14ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+  app/controllers/model_images_controller.rb:46:in `create'
+  app/controllers/model_images_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (75.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (84.8ms)
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.2ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (4.9ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.0ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.8ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (5.4ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (5.1ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (6.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.6ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "image_url" varchar(255), "frame_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "eye_glasses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "material" varchar(255) NOT NULL, "color" varchar(255) NOT NULL, "shape" varchar(255) NOT NULL, "price" decimal(6,2) NOT NULL, "who_can_wear" varchar(255) NOT NULL, "image_url" varchar(255) NOT NULL, "frame_url" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE INDEX "index_eye_glasses_on_color" ON "eye_glasses" ("color")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_frame_url" ON "eye_glasses" ("frame_url")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.2ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_id" ON "eye_glasses" ("id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE INDEX "index_eye_glasses_on_image_url" ON "eye_glasses" ("image_url")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (5.9ms)[0m  CREATE INDEX "index_eye_glasses_on_material" ON "eye_glasses" ("material")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("eye_glasses")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (6.1ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_name" ON "eye_glasses" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_material')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_image_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_frame_url')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_color')
+  [1m[36mSQL (7.4ms)[0m  [1mCREATE INDEX "index_eye_glasses_on_shape" ON "eye_glasses" ("shape")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("eye_glasses")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_shape')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_material')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_image_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_eye_glasses_on_frame_url')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_eye_glasses_on_color')[0m
+  [1m[35mSQL (7.2ms)[0m  CREATE INDEX "index_eye_glasses_on_who_can_wear" ON "eye_glasses" ("who_can_wear")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.0ms)[0m  CREATE TABLE "model_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_url" varchar(255) NOT NULL, "gender" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (7.1ms)[0m  CREATE INDEX "index_model_images_on_gender" ON "model_images" ("gender")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("model_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_model_images_on_gender')
+  [1m[36mSQL (7.2ms)[0m  [1mCREATE INDEX "index_model_images_on_image_url" ON "model_images" ("image_url")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (7.3ms)[0m  [1mCREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (8.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (7.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110330170036')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226192144')[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226192619')
+  [1m[36mSQL (6.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110226193439')[0m

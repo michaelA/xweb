@@ -3,6 +3,11 @@ require 'test_helper'
 class RegistersControllerTest < ActionController::TestCase
   setup do
     @register = registers(:one)
+    @update = {
+        :name => "goodley",
+        :address => "435 N Estern Av",
+        :email   => "odley@gobay.co"
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class RegistersControllerTest < ActionController::TestCase
 
   test "should create register" do
     assert_difference('Register.count') do
-      post :create, :register => @register.attributes
+      post :create, :register => @update #@register.attributes
     end
 
     assert_redirected_to register_path(assigns(:register))
@@ -35,7 +40,7 @@ class RegistersControllerTest < ActionController::TestCase
   end
 
   test "should update register" do
-    put :update, :id => @register.to_param, :register => @register.attributes
+    put :update, :id => @register.to_param, :register => @update#@register.attributes
     assert_redirected_to register_path(assigns(:register))
   end
 

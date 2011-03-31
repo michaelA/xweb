@@ -3,6 +3,10 @@ require 'test_helper'
 class ModelImagesControllerTest < ActionController::TestCase
   setup do
     @model_image = model_images(:one)
+    @update = {
+        :image_url => 'images/frame_5_model.png',
+        :gender   => 'male'
+    }
   end
 
   test "should get index" do
@@ -18,7 +22,7 @@ class ModelImagesControllerTest < ActionController::TestCase
 
   test "should create model_image" do
     assert_difference('ModelImage.count') do
-      post :create, :model_image => @model_image.attributes
+      post :create, :model_image => @update #@model_image.attributes
     end
 
     assert_redirected_to model_image_path(assigns(:model_image))
@@ -35,7 +39,7 @@ class ModelImagesControllerTest < ActionController::TestCase
   end
 
   test "should update model_image" do
-    put :update, :id => @model_image.to_param, :model_image => @model_image.attributes
+    put :update, :id => @model_image.to_param, :model_image => @update#@model_image.attributes
     assert_redirected_to model_image_path(assigns(:model_image))
   end
 
