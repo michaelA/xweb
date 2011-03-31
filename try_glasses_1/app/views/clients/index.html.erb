@@ -10,7 +10,7 @@
 	<th><%=button_to "Register", new_register_url, :method => :get%></th>
 	<tr>
 		<td>
-			<img  border="0" src="" alt="" width="400" height="400" />
+			<img  border="0" src="/images/model.png" alt="" width="400" height="400" />
 		</td>
 	</tr>
 </table>
@@ -48,10 +48,11 @@
 		</tr>
 		<!--Ruby code of getting glasses images from database -->
 		<% count = 0 %>
-		<% @clients.each do |client| %>
+		<% @eyeGlass.each do |eg| %>
 			<%if count == 0%><tr id = "image"><%end%>
-			<td id = "frame"><%= link_to  image_tag(client.frame_url, :alt => "welcome to my own blog image.gif") , client.image_url ,{:id => client.id}%></td>
+			<td id = "frame"><%= link_to  image_tag(eg.frame_url, :alt => "welcome to my own blog image.gif") , eg.image_url ,{:id => eg.id}%></td>
 		<% count += 1 %>
+          <%if count == 3%><% count = 0 %><%end%>
 		<% end %>
 	</table>
 </div>
@@ -125,6 +126,8 @@ var sort_by = function(field, reverse, primer)
 */
 $("#price").change(function()
 {
+    $("#material").val("All");
+    $("#shape").val("All");
 	var sel = $('#price option:selected').text();
 	$.getJSON("clients.json",function(result,suc)
 	{
@@ -136,15 +139,23 @@ $("#price").change(function()
 			result.sort(sort_by('price', true, parseFloat));
 			
         $("table").find("#image").remove();
+        var count = 0 ;
         var msg = "<tr id = 'image'>";
 		for (i=0;i<=result.length - 1;i++)
         {
+
 			msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
+            count += 1;
+            if(count == 3)
+            {
+                count = 0;
+                msg +=  "</tr>";
+                msg += "<tr id = 'image'>";
+            }
 		}
-		msg +=  "</tr>";
         
 		$("table tr:last").after(msg);
-		$("#model img").attr("src", "");
+		$("#model img").attr("src", "/images/model.png");
 		var content = "<div id = 'eyeglassstable'></div>";
         $('#eyeglassstable'). replaceWith(content);
     });
@@ -157,24 +168,30 @@ $("#price").change(function()
 */		 
 $("#shape").change(function()
 {
+    $("#price").val("All");
+   $("#material").val("All");
+
 	var sel = $('#shape option:selected').text();
 	$.getJSON("clients.json",function(result,suc)
 	{
         $("table").find("#image").remove();
         var msg = "<tr id = 'image'>";
+        var count = 0 ;
         for (i=0;i<=result.length - 1;i++)
         {
-                    if(result[i].shape == sel)
+                    if(result[i].shape == sel || sel == "All" )
                     {
                         msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-                    }
-                    else if (sel == "All")
-                    {
-                          msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-                    }
+                        count += 1;
+                        if(count == 3)
+                        {
+                            count = 0;
+                            msg +=  "</tr>";
+                            msg += "<tr id = 'image'>";
+                        }
+                     }
 		}
-		msg +=  "</tr>";
-		$("#model img").attr("src", "");
+		$("#model img").attr("src", "/images/model.png");
 		$("table tr:last").after(msg);
 		var content = "<div id = 'eyeglassstable'></div>";
         $('#eyeglassstable'). replaceWith(content);
@@ -188,25 +205,29 @@ $("#shape").change(function()
 */
 $("#material").change(function()
 {
+    $("#price").val("All");
+    $("#shape").val("All");
 	var sel = $('#material option:selected').text();
 	$.getJSON("clients.json",function(result,suc)
 	{
 		$("table").find("#image").remove();
+        var count = 0;
 		var msg = "<tr id = 'image'>";
 		for (i=0;i<=result.length - 1;i++)
 		{
-			if(result[i].material == sel)
+			if(result[i].material == sel || sel == "All")
 			{
 				msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
-			}
-			else if (sel == "All")
-			{
-				msg += "<td id = 'frame'><a id ='"+ result[i].id + "'href = " + result[i].image_url +"><img src='" + result[i].frame_url +"'/></a></td>" ;
+                 count += 1;
+                        if(count == 3)
+                        {
+                            count = 0;
+                            msg +=  "</tr>";
+                            msg += "<tr id = 'image'>";
+                        }
 			}
 		}
-		
-		msg +=  "</tr>";
-		$("#model img").attr("src", "");
+		$("#model img").attr("src", "/images/model.png");
 		$("table tr:last").after(msg);
 		var content = "<div id = 'eyeglassstable'></div>";
 		$('#eyeglassstable'). replaceWith(content);
