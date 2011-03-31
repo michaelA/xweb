@@ -2448,3 +2448,1038 @@ Redirected to http://test.host/registers/980190962
 Completed 302 Found in 7ms
   Processing by WelcomeController#index as HTML
 Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  Processing by ClientsController#create as HTML
+  Parameters: {"client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "clients" ("gender", "created_at", "user_name", "updated_at", "image_url", "frame_url") VALUES ('Male', '2011-03-31 18:05:42.044711', 'terry23', '2011-03-31 18:05:42.044711', 'images/frame_6_model.png', 'images/frame_6.png')[0m
+Redirected to http://test.host/clients/4
+Completed 302 Found in 16ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  Processing by ClientsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = 1
+Redirected to http://test.host/clients
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Rendered clients/_form.html.erb (8.4ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 6.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.4ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.9ms)
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (4.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#update as HTML
+  Parameters: {"id"=>"1", "client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') AND ("clients".id <> 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "clients" SET "gender" = 'Male', "user_name" = 'terry23', "updated_at" = '2011-03-31 18:05:42.213402', "image_url" = 'images/frame_6_model.png', "frame_url" = 'images/frame_6.png' WHERE "clients"."id" = 1[0m
+Redirected to http://test.host/clients/1
+Completed 302 Found in 69ms
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}}
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "eye_glasses" ("color", "material", "created_at", "shape", "updated_at", "price", "image_url", "who_can_wear", "frame_url", "name") VALUES ('white', 'plastic', '2011-03-31 18:05:42.230343', 'square', '2011-03-31 18:05:42.230343', 29.12, 'images/frame_1_model.png', 'female', 'images/frame_1.pgn', 'terry Co')[0m
+Redirected to http://test.host/eye_glasses/6
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  Processing by EyeGlassesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "eye_glasses" WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (7.9ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 4.0ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (0.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.7ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (6.3ms)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#update as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}, "id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mEyeGlass Load (0.1ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') AND ("eye_glasses".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "eye_glasses" SET "color" = 'white', "updated_at" = '2011-03-31 18:05:42.338209', "price" = 29.12, "image_url" = 'images/frame_1_model.png', "frame_url" = 'images/frame_1.pgn', "name" = 'terry Co' WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses/1
+Completed 302 Found in 6ms
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.1ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "model_images" ("gender", "image_url", "created_at", "updated_at") VALUES ('male', 'images/frame_5_model.png', '2011-03-31 18:05:42.357222', '2011-03-31 18:05:42.357222')
+Redirected to http://test.host/model_images/980190963
+Completed 302 Found in 8ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  Processing by ModelImagesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "model_images" WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+Rendered model_images/_form.html.erb (4.4ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 3.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#index as HTML
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images"
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (3.0ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#update as HTML
+  Parameters: {"id"=>"980190962", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') AND ("model_images".id <> 980190962) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "model_images" SET "gender" = 'male', "image_url" = 'images/frame_5_model.png', "updated_at" = '2011-03-31 18:05:42.448361' WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images/980190962
+Completed 302 Found in 5ms
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  Processing by RegistersController#create as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}}
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "registers" ("name", "created_at", "address", "email", "updated_at") VALUES ('goodley', '2011-03-31 18:05:42.467923', '435 N Estern Av', 'odley@gobay.co', '2011-03-31 18:05:42.467923')[0m
+Redirected to http://test.host/registers/980190963
+Completed 302 Found in 84ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  Processing by RegistersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "registers" WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+Rendered registers/_form.html.erb (4.7ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 3.4ms)
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#index as HTML
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers"[0m
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (3.2ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#update as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}, "id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') AND ("registers".id <> 980190962) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "registers" SET "name" = 'goodley', "address" = '435 N Estern Av', "email" = 'odley@gobay.co', "updated_at" = '2011-03-31 18:05:42.634270' WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers/980190962
+Completed 302 Found in 6ms
+  Processing by WelcomeController#index as HTML
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  Processing by ClientsController#create as HTML
+  Parameters: {"client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "clients" ("gender", "created_at", "user_name", "updated_at", "image_url", "frame_url") VALUES ('Male', '2011-03-31 18:09:32.051282', 'terry23', '2011-03-31 18:09:32.051282', 'images/frame_6_model.png', 'images/frame_6.png')[0m
+Redirected to http://test.host/clients/4
+Completed 302 Found in 16ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  Processing by ClientsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = 1
+Redirected to http://test.host/clients
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Rendered clients/_form.html.erb (10.1ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 6.4ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.4ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.9ms)
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (4.5ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#update as HTML
+  Parameters: {"id"=>"1", "client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') AND ("clients".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "clients" SET "gender" = 'Male', "user_name" = 'terry23', "updated_at" = '2011-03-31 18:09:32.222851', "image_url" = 'images/frame_6_model.png', "frame_url" = 'images/frame_6.png' WHERE "clients"."id" = 1[0m
+Redirected to http://test.host/clients/1
+Completed 302 Found in 68ms
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}}
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "eye_glasses" ("color", "material", "created_at", "shape", "updated_at", "price", "image_url", "who_can_wear", "frame_url", "name") VALUES ('white', 'plastic', '2011-03-31 18:09:32.239840', 'square', '2011-03-31 18:09:32.239840', 29.12, 'images/frame_1_model.png', 'female', 'images/frame_1.pgn', 'terry Co')[0m
+Redirected to http://test.host/eye_glasses/6
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  Processing by EyeGlassesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "eye_glasses" WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (8.1ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 3.9ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (0.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.7ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (7.0ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.3ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#update as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}, "id"=>"1"}
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mEyeGlass Load (0.1ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') AND ("eye_glasses".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "eye_glasses" SET "color" = 'white', "updated_at" = '2011-03-31 18:09:32.349885', "price" = 29.12, "image_url" = 'images/frame_1_model.png', "frame_url" = 'images/frame_1.pgn', "name" = 'terry Co' WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses/1
+Completed 302 Found in 7ms
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.1ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "model_images" ("gender", "image_url", "created_at", "updated_at") VALUES ('male', 'images/frame_5_model.png', '2011-03-31 18:09:32.369096', '2011-03-31 18:09:32.369096')
+Redirected to http://test.host/model_images/980190963
+Completed 302 Found in 8ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  Processing by ModelImagesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "model_images" WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+Rendered model_images/_form.html.erb (4.3ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 3.4ms)
+  [1m[36mModelImage Load (0.5ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#index as HTML
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images"
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.7ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (3.1ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mModelImage Load (0.3ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.5ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#update as HTML
+  Parameters: {"id"=>"980190962", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') AND ("model_images".id <> 980190962) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "model_images" SET "gender" = 'male', "image_url" = 'images/frame_5_model.png', "updated_at" = '2011-03-31 18:09:32.460225' WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images/980190962
+Completed 302 Found in 5ms
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  Processing by RegistersController#create as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}}
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "registers" ("name", "created_at", "address", "email", "updated_at") VALUES ('goodley', '2011-03-31 18:09:32.480564', '435 N Estern Av', 'odley@gobay.co', '2011-03-31 18:09:32.480564')[0m
+Redirected to http://test.host/registers/980190963
+Completed 302 Found in 84ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  Processing by RegistersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "registers" WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+Rendered registers/_form.html.erb (4.6ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 3.5ms)
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#index as HTML
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers"[0m
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.4ms)
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (3.2ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#update as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}, "id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') AND ("registers".id <> 980190962) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "registers" SET "name" = 'goodley', "address" = '435 N Estern Av', "email" = 'odley@gobay.co', "updated_at" = '2011-03-31 18:09:32.650556' WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers/980190962
+Completed 302 Found in 6ms
+  Processing by WelcomeController#index as HTML
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  Processing by ClientsController#create as HTML
+  Parameters: {"client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "clients" ("gender", "created_at", "user_name", "updated_at", "image_url", "frame_url") VALUES ('Male', '2011-03-31 18:13:37.323543', 'terry23', '2011-03-31 18:13:37.323543', 'images/frame_6_model.png', 'images/frame_6.png')[0m
+Redirected to http://test.host/clients/4
+Completed 302 Found in 16ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  Processing by ClientsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = 1
+Redirected to http://test.host/clients
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Rendered clients/_form.html.erb (8.1ms)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 7.0ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.4ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.9ms)
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (4.4ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.4ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#update as HTML
+  Parameters: {"id"=>"1", "client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') AND ("clients".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "clients" SET "gender" = 'Male', "user_name" = 'terry23', "updated_at" = '2011-03-31 18:13:37.490759', "image_url" = 'images/frame_6_model.png', "frame_url" = 'images/frame_6.png' WHERE "clients"."id" = 1[0m
+Redirected to http://test.host/clients/1
+Completed 302 Found in 68ms
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}}
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "eye_glasses" ("color", "material", "created_at", "shape", "updated_at", "price", "image_url", "who_can_wear", "frame_url", "name") VALUES ('white', 'plastic', '2011-03-31 18:13:37.507088', 'square', '2011-03-31 18:13:37.507088', 29.12, 'images/frame_1_model.png', 'female', 'images/frame_1.pgn', 'terry Co')[0m
+Redirected to http://test.host/eye_glasses/6
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  Processing by EyeGlassesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "eye_glasses" WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (8.1ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 4.0ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (0.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.7ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (6.4ms)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#update as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}, "id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mEyeGlass Load (0.1ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') AND ("eye_glasses".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "eye_glasses" SET "color" = 'white', "updated_at" = '2011-03-31 18:13:37.618603', "price" = 29.12, "image_url" = 'images/frame_1_model.png', "frame_url" = 'images/frame_1.pgn', "name" = 'terry Co' WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses/1
+Completed 302 Found in 6ms
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.1ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "model_images" ("gender", "image_url", "created_at", "updated_at") VALUES ('male', 'images/frame_5_model.png', '2011-03-31 18:13:37.638344', '2011-03-31 18:13:37.638344')
+Redirected to http://test.host/model_images/980190963
+Completed 302 Found in 8ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  Processing by ModelImagesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "model_images" WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.3ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+Rendered model_images/_form.html.erb (4.3ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 3.5ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#index as HTML
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images"
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (3.0ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#update as HTML
+  Parameters: {"id"=>"980190962", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') AND ("model_images".id <> 980190962) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "model_images" SET "gender" = 'male', "image_url" = 'images/frame_5_model.png', "updated_at" = '2011-03-31 18:13:37.728252' WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images/980190962
+Completed 302 Found in 6ms
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  Processing by RegistersController#create as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}}
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "registers" ("name", "created_at", "address", "email", "updated_at") VALUES ('goodley', '2011-03-31 18:13:37.748907', '435 N Estern Av', 'odley@gobay.co', '2011-03-31 18:13:37.748907')[0m
+Redirected to http://test.host/registers/980190963
+Completed 302 Found in 86ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  Processing by RegistersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "registers" WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+Rendered registers/_form.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 3.5ms)
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#index as HTML
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers"[0m
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (3.2ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.4ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#update as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}, "id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') AND ("registers".id <> 980190962) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "registers" SET "name" = 'goodley', "address" = '435 N Estern Av', "email" = 'odley@gobay.co', "updated_at" = '2011-03-31 18:13:37.918325' WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers/980190962
+Completed 302 Found in 7ms
+  Processing by WelcomeController#index as HTML
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  Processing by ClientsController#create as HTML
+  Parameters: {"client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "clients" ("gender", "created_at", "user_name", "updated_at", "image_url", "frame_url") VALUES ('Male', '2011-03-31 18:17:04.814754', 'terry23', '2011-03-31 18:17:04.814754', 'images/frame_6_model.png', 'images/frame_6.png')[0m
+Redirected to http://test.host/clients/4
+Completed 302 Found in 16ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  Processing by ClientsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = 1
+Redirected to http://test.host/clients
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Rendered clients/_form.html.erb (8.0ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 6.5ms)
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.4ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.9ms)
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (4.4ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.4ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#update as HTML
+  Parameters: {"id"=>"1", "client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') AND ("clients".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "clients" SET "gender" = 'Male', "user_name" = 'terry23', "updated_at" = '2011-03-31 18:17:04.983593', "image_url" = 'images/frame_6_model.png', "frame_url" = 'images/frame_6.png' WHERE "clients"."id" = 1[0m
+Redirected to http://test.host/clients/1
+Completed 302 Found in 70ms
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}}
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "eye_glasses" ("color", "material", "created_at", "shape", "updated_at", "price", "image_url", "who_can_wear", "frame_url", "name") VALUES ('white', 'plastic', '2011-03-31 18:17:05.000418', 'square', '2011-03-31 18:17:05.000418', 29.12, 'images/frame_1_model.png', 'female', 'images/frame_1.pgn', 'terry Co')[0m
+Redirected to http://test.host/eye_glasses/6
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  Processing by EyeGlassesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  DELETE FROM "eye_glasses" WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (7.9ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 4.1ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (0.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (6.3ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#update as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}, "id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mEyeGlass Load (0.1ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') AND ("eye_glasses".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "eye_glasses" SET "color" = 'white', "updated_at" = '2011-03-31 18:17:05.107742', "price" = 29.12, "image_url" = 'images/frame_1_model.png', "frame_url" = 'images/frame_1.pgn', "name" = 'terry Co' WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses/1
+Completed 302 Found in 6ms
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "model_images" ("gender", "image_url", "created_at", "updated_at") VALUES ('male', 'images/frame_5_model.png', '2011-03-31 18:17:05.126290', '2011-03-31 18:17:05.126290')
+Redirected to http://test.host/model_images/980190963
+Completed 302 Found in 8ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  Processing by ModelImagesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "model_images" WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+Rendered model_images/_form.html.erb (4.3ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 3.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#index as HTML
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images"
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (3.0ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.4ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#update as HTML
+  Parameters: {"id"=>"980190962", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') AND ("model_images".id <> 980190962) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "model_images" SET "gender" = 'male', "image_url" = 'images/frame_5_model.png', "updated_at" = '2011-03-31 18:17:05.215733' WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images/980190962
+Completed 302 Found in 6ms
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  Processing by RegistersController#create as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}}
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "registers" ("name", "created_at", "address", "email", "updated_at") VALUES ('goodley', '2011-03-31 18:17:05.236399', '435 N Estern Av', 'odley@gobay.co', '2011-03-31 18:17:05.236399')[0m
+Redirected to http://test.host/registers/980190963
+Completed 302 Found in 84ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  Processing by RegistersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "registers" WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+Rendered registers/_form.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 3.5ms)
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#index as HTML
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers"[0m
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.4ms)
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (3.3ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.4ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#update as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}, "id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') AND ("registers".id <> 980190962) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "registers" SET "name" = 'goodley', "address" = '435 N Estern Av', "email" = 'odley@gobay.co', "updated_at" = '2011-03-31 18:17:05.403684' WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers/980190962
+Completed 302 Found in 7ms
+  Processing by WelcomeController#index as HTML
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" IS NULL) LIMIT 1
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" IS NULL) LIMIT 1
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" IS NULL) LIMIT 1
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" IS NULL) LIMIT 1
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" IS NULL) LIMIT 1[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" IS NULL) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" IS NULL) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  Processing by ClientsController#create as HTML
+  Parameters: {"client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[35mClient Load (0.1ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "clients" ("gender", "created_at", "user_name", "updated_at", "image_url", "frame_url") VALUES ('Male', '2011-03-31 18:22:36.058131', 'terry23', '2011-03-31 18:22:36.058131', 'images/frame_6_model.png', 'images/frame_6.png')[0m
+Redirected to http://test.host/clients/4
+Completed 302 Found in 16ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "clients"
+  Processing by ClientsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = 1
+Redirected to http://test.host/clients
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "clients"[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Rendered clients/_form.html.erb (8.3ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 6.0ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.4ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.9ms)
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  Processing by ClientsController#new as HTML
+Rendered clients/_form.html.erb (6.3ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.2ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1
+  Processing by ClientsController#update as HTML
+  Parameters: {"id"=>"1", "client"=>{"image_url"=>"images/frame_6_model.png", "gender"=>"Male", "user_name"=>"terry23", "frame_url"=>"images/frame_6.png"}}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 1 LIMIT 1[0m
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients"."id" FROM "clients" WHERE ("clients"."user_name" = 'terry23') AND ("clients".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "clients" SET "gender" = 'Male', "user_name" = 'terry23', "updated_at" = '2011-03-31 18:22:36.232508', "image_url" = 'images/frame_6_model.png', "frame_url" = 'images/frame_6.png' WHERE "clients"."id" = 1[0m
+Redirected to http://test.host/clients/1
+Completed 302 Found in 71ms
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  Processing by EyeGlassesController#create as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}}
+  [1m[35mEyeGlass Load (0.1ms)[0m  SELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "eye_glasses" ("color", "material", "created_at", "shape", "updated_at", "price", "image_url", "who_can_wear", "frame_url", "name") VALUES ('white', 'plastic', '2011-03-31 18:22:36.249040', 'square', '2011-03-31 18:22:36.249040', 29.12, 'images/frame_1_model.png', 'female', 'images/frame_1.pgn', 'terry Co')[0m
+Redirected to http://test.host/eye_glasses/6
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "eye_glasses"
+  Processing by EyeGlassesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "eye_glasses" WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEyeGlass Load (0.2ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+Rendered eye_glasses/_form.html.erb (8.1ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 3.9ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#index as HTML
+  [1m[36mEyeGlass Load (0.4ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses"[0m
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.7ms)
+  [1m[35mEyeGlass Load (0.3ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  Processing by EyeGlassesController#new as HTML
+Rendered eye_glasses/_form.html.erb (6.4ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+  [1m[36mEyeGlass Load (0.3ms)[0m  [1mSELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1[0m
+  Processing by EyeGlassesController#update as HTML
+  Parameters: {"eye_glass"=>{"price"=>29.12, "name"=>"terry Co", "image_url"=>"images/frame_1_model.png", "shape"=>"square", "color"=>"white", "who_can_wear"=>"female", "frame_url"=>"images/frame_1.pgn", "material"=>"plastic"}, "id"=>"1"}
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 1 LIMIT 1
+  [1m[36mEyeGlass Load (0.1ms)[0m  [1mSELECT "eye_glasses"."id" FROM "eye_glasses" WHERE ("eye_glasses"."image_url" = 'images/frame_1_model.png') AND ("eye_glasses".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "eye_glasses" SET "color" = 'white', "updated_at" = '2011-03-31 18:22:36.357354', "price" = 29.12, "image_url" = 'images/frame_1_model.png', "frame_url" = 'images/frame_1.pgn', "name" = 'terry Co' WHERE "eye_glasses"."id" = 1
+Redirected to http://test.host/eye_glasses/1
+Completed 302 Found in 6ms
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  Processing by ModelImagesController#create as HTML
+  Parameters: {"model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "model_images" ("gender", "image_url", "created_at", "updated_at") VALUES ('male', 'images/frame_5_model.png', '2011-03-31 18:22:36.375678', '2011-03-31 18:22:36.375678')
+Redirected to http://test.host/model_images/980190963
+Completed 302 Found in 9ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "model_images"[0m
+  Processing by ModelImagesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "model_images" WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "model_images"
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+Rendered model_images/_form.html.erb (4.0ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 3.5ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#index as HTML
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images"
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms)
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  Processing by ModelImagesController#new as HTML
+Rendered model_images/_form.html.erb (3.1ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+  [1m[35mModelImage Load (0.2ms)[0m  SELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1
+  Processing by ModelImagesController#update as HTML
+  Parameters: {"id"=>"980190962", "model_image"=>{"image_url"=>"images/frame_5_model.png", "gender"=>"male"}}
+  [1m[36mModelImage Load (0.2ms)[0m  [1mSELECT "model_images".* FROM "model_images" WHERE "model_images"."id" = 980190962 LIMIT 1[0m
+  [1m[35mModelImage Load (0.1ms)[0m  SELECT "model_images"."id" FROM "model_images" WHERE ("model_images"."image_url" = 'images/frame_5_model.png') AND ("model_images".id <> 980190962) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "model_images" SET "gender" = 'male', "image_url" = 'images/frame_5_model.png', "updated_at" = '2011-03-31 18:22:36.465624' WHERE "model_images"."id" = 980190962[0m
+Redirected to http://test.host/model_images/980190962
+Completed 302 Found in 5ms
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  Processing by RegistersController#create as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "registers" ("name", "created_at", "address", "email", "updated_at") VALUES ('goodley', '2011-03-31 18:22:36.486000', '435 N Estern Av', 'odley@gobay.co', '2011-03-31 18:22:36.486000')[0m
+Redirected to http://test.host/registers/980190963
+Completed 302 Found in 85ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "registers"
+  Processing by RegistersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "registers" WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "registers"[0m
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+Rendered registers/_form.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 3.4ms)
+  [1m[35mRegister Load (0.3ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#index as HTML
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers"[0m
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.5ms)
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  Processing by RegistersController#new as HTML
+Rendered registers/_form.html.erb (3.2ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+  [1m[36mRegister Load (0.2ms)[0m  [1mSELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1[0m
+  Processing by RegistersController#update as HTML
+  Parameters: {"register"=>{"address"=>"435 N Estern Av", "name"=>"goodley", "email"=>"odley@gobay.co"}, "id"=>"980190962"}
+  [1m[35mRegister Load (0.2ms)[0m  SELECT "registers".* FROM "registers" WHERE "registers"."id" = 980190962 LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."name" = 'goodley') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mRegister Load (0.1ms)[0m  SELECT "registers"."id" FROM "registers" WHERE ("registers"."address" = '435 N Estern Av') AND ("registers".id <> 980190962) LIMIT 1
+  [1m[36mRegister Load (0.1ms)[0m  [1mSELECT "registers"."id" FROM "registers" WHERE ("registers"."email" = 'odley@gobay.co') AND ("registers".id <> 980190962) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "registers" SET "name" = 'goodley', "address" = '435 N Estern Av', "email" = 'odley@gobay.co', "updated_at" = '2011-03-31 18:22:36.653714' WHERE "registers"."id" = 980190962
+Redirected to http://test.host/registers/980190962
+Completed 302 Found in 6ms
+  Processing by WelcomeController#index as HTML
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 1.0ms)
