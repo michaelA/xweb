@@ -5,7 +5,7 @@ one:
   name: Lenscrafters
   material: plastic
   color: black
-  shape: oval
+  shape: square
   price: 19.99
   who_can_wear: female
   image_url: /images/frame_1_model.png
@@ -13,9 +13,9 @@ one:
 
 two:
   id: 2
-  name: Calvin Klein
+  name: Fantacy
   material: metal
-  color: silver
+  color: black
   shape: square
   price: 39.99
   who_can_wear: female
@@ -24,11 +24,33 @@ two:
 
 three:
   id: 3
-  name: Calvin Klein
+  name: Diya
   material: metal
-  color: black
-  shape: square
+  color: silver
+  shape: oval
   price: 29.99
   who_can_wear: female
   image_url: /images/frame_3_model.png
   frame_url: /images/frame_3.png
+
+four:
+  id: 4
+  name: Calvin Klein
+  material: metal
+  color: black
+  shape: square
+  price: 11.99
+  who_can_wear: male
+  image_url: /images/frame_4_model.png
+  frame_url: /images/frame_4.png
+
+five:
+  id: 5
+  name: Denim
+  material: metal
+  color: silver
+  shape: square
+  price: 21.99
+  who_can_wear: female
+  image_url: /images/frame_5_model.png
+  frame_url: /images/frame_5.png
