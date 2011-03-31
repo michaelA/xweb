@@ -1,3 +1,6 @@
+<!-- this is a partial page -->
+
+
 <%= form_for(@eye_glass) do |f| %>
   <% if @eye_glass.errors.any? %>
     <div id="error_explanation">
@@ -38,6 +41,11 @@
   <div class="field">
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url %>
+  </div>
+    <!-- added so that frame url can be entered in the form -->
+    <div class="field">
+    <%= f.label :frame_url %><br />
+    <%= f.text_field :frame_url %>
   </div>
   <div class="actions">
     <%= f.submit %>
