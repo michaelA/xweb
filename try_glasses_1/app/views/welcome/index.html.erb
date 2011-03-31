@@ -1,9 +1,10 @@
 <h1>Welcome to Our Glasses Application</h1>
-<table>
+<div>
+<table class="imgcentered">
 <tr>
 <th>Choose  your selection</th>
 </tr><tr>
 <td><%= link_to 'Demo Application', clients_path %></td>
 </tr>
-<tr><td>Register</td></tr>
-</table>
+<tr><td> <%= link_to 'Register', new_register_url, :method => :get %></td></tr>
+</table></div>
