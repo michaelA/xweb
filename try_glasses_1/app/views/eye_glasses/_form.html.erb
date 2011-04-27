@@ -2,52 +2,81 @@
 
 
 <%= form_for(@eye_glass) do |f| %>
-  <% if @eye_glass.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@eye_glass.errors.count, "error") %> prohibited this eye_glass from being saved:</h2>
+    <% if @eye_glass.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@eye_glass.errors.count, "error") %> prohibited this eye_glass from being saved:</h2>
 
-      <ul>
-      <% @eye_glass.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @eye_glass.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :material %><br />
-    <%= f.text_field :material %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :shape %><br />
-    <%= f.text_field :shape %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :who_can_wear %><br />
-    <%= f.text_field :who_can_wear %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </div>
-    <!-- added so that frame url can be entered in the form -->
     <div class="field">
-    <%= f.label :frame_url %><br />
-    <%= f.text_field :frame_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :material %>
+      <% #material = EyeGlass.find(:all, :select => 'DISTINCT material') %>
+      <% eyeGlassMaterial = ['plastic', 'metal']#[] %>
+      <%#material.each do |eachmaterial| %>
+          <% #eyeGlassMaterial.push(eachmaterial.material)%>
+      <% #end%>
+      <%= f.select(:material, eyeGlassMaterial) %>
+    </div>
+    <div class="field">
+      <%= f.label :color %>
+      <% # color = EyeGlass.find(:all, :select => 'Distinct color') %>
+      <%  eyeGlasscolor = ['silver', 'black'] %>
+      <%# color.each do |l|  %>
+          <%#  eyeGlasscolor.push(l.color)   %>
+      <% #end %>
+      <%= f.select(:color, eyeGlasscolor) %>
+    </div>
+    <div class="field">
+      <%= f.label :shape %>
+      <% shape = EyeGlass.find(:all, :select => 'Distinct shape') %>
+      <%  eyeGlassshape = [] %>
+      <% shape.each do |l|  %>
+          <%  eyeGlassshape.push(l.shape)   %>
+      <% end %>
+      <%= f.select(:shape, eyeGlassshape) %>
+    </div>
+    <div class="field">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :who_can_wear %>
+      <% wear = EyeGlass.find(:all, :select => 'Distinct who_can_wear') %>
+      <%  eyeWear = [] %>
+      <% wear.each do |l|  %>
+          <%  eyeWear.push(l.who_can_wear)   %>
+      <% end %>
+      <%= f.select(:who_can_wear, eyeWear) %>
+    </div>
+    <div class="field">
+      <%= f.label :image_url %>
+      <% modelGL = ModelImage.find(:all, :select => 'Distinct image_url') %>
+      <%  models = [] %>
+      <% frames = [] %>
+      <% modelGL.each do |l|  %>
+          <%  models.push(l.image_url)   %>
+          <% test = l.image_url%>
+
+              <% frames.push(l.image_url[0,15] << '.png' )  %>
+
+      <% end %>
+      <%= f.select(:image_url, models)  %>
+    </div>
+    <div class="field">
+      <%= f.label :frame_url %>
+      <%= f.select(:frame_url,frames)%>
+    </div>             <br>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

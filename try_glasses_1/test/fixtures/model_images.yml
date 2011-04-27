@@ -1,9 +1,37 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  image_url: http://myglassses
+  image_url: /images/frame_1_model.png
   gender: female
 
 two:
-  image_url: http://myglasses
+  image_url: /images/frame_2_model.png
+  gender: female
+
+three:
+  image_url: /images/frame_3_model.png
+  gender: female
+
+four:
+  image_url: /images/frame_4_model.png
+  gender: female
+
+five:
+  image_url: /images/frame_5_model.png
+  gender: female
+
+six:
+  image_url: /images/frame_6_model.png
+  gender: male
+
+seven:
+  image_url: /images/frame_7_model.png
+  gender: male
+
+eight:
+  image_url: /images/frame_8_model.png
+  gender: male
+
+nine:
+  image_url: /images/frame_9_model.png
   gender: male
