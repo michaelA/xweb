@@ -15272,3 +15272,85 @@ Started GET "/clients.json" for 127.0.0.1 at Tue Apr 26 16:11:33 -0700 2011
   [1m[36mClient Load (0.8ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
   [1m[35mEyeGlass Load (0.8ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
 Completed 200 OK in 39ms (Views: 3.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Apr 27 14:29:58 -0700 2011
+  Processing by WelcomeController#index as HTML
+Rendered welcome/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients" for 127.0.0.1 at Wed Apr 27 14:30:02 -0700 2011
+  Processing by ClientsController#index as HTML
+  [1m[36mClient Load (2.6ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.7ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Rendered clients/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 94ms (Views: 22.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/images/frame_7.png" for 127.0.0.1 at Wed Apr 27 14:30:03 -0700 2011
+
+ActionController::RoutingError (No route matches "/images/frame_7.png"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/clients.json" for 127.0.0.1 at Wed Apr 27 14:30:08 -0700 2011
+  Processing by ClientsController#index as JSON
+  [1m[36mClient Load (0.9ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  [1m[35mEyeGlass Load (0.6ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Completed 200 OK in 109ms (Views: 3.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/images/frame_7.png" for 127.0.0.1 at Wed Apr 27 14:30:08 -0700 2011
+
+ActionController::RoutingError (No route matches "/images/frame_7.png"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/eye_glasses/new" for 127.0.0.1 at Wed Apr 27 14:30:17 -0700 2011
+  Processing by EyeGlassesController#new as HTML
+  [1m[36mEyeGlass Load (1.3ms)[0m  [1mSELECT Distinct shape FROM "eye_glasses"[0m
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT Distinct who_can_wear FROM "eye_glasses"
+  [1m[36mModelImage Load (0.4ms)[0m  [1mSELECT Distinct image_url FROM "model_images"[0m
+Rendered eye_glasses/_form.html.erb (47.1ms)
+Rendered eye_glasses/new.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 74ms (Views: 58.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/eye_glasses" for 127.0.0.1 at Wed Apr 27 14:30:22 -0700 2011
+  Processing by EyeGlassesController#index as HTML
+  [1m[35mEyeGlass Load (1.1ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses"
+Rendered eye_glasses/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 45ms (Views: 31.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/frame_7_model.png" for 127.0.0.1 at Wed Apr 27 14:30:23 -0700 2011
+
+ActionController::RoutingError (No route matches "/images/frame_7_model.png"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/images/frame_7.png" for 127.0.0.1 at Wed Apr 27 14:30:23 -0700 2011
+
+ActionController::RoutingError (No route matches "/images/frame_7.png"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/eye_glasses/11" for 127.0.0.1 at Wed Apr 27 14:30:33 -0700 2011
+  Processing by EyeGlassesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mEyeGlass Load (0.2ms)[0m  SELECT "eye_glasses".* FROM "eye_glasses" WHERE "eye_glasses"."id" = 11 LIMIT 1
+Rendered eye_glasses/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 31ms (Views: 17.9ms | ActiveRecord: 1.0ms)
