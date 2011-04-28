@@ -90,14 +90,11 @@ padding: 4px 16px;
 .rightbodybottom
 {
 border-style:solid;
- position: absolute;
+ position: relative;
  background-color:#003366;
  z-index: 15;
     width: 500px;
- margin-left: 700px;
- margin-top:300px;
- padding: 0px 0px 20px 5px; /*top right bottom left*/
- 
+    top: 50px;
 }
 
 .leftmostbody
